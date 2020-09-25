@@ -1,0 +1,274 @@
+// 888b     d888                            
+// 8888b   d8888                            
+// 88888b.d88888                            
+// 888Y88888P888  .d88b.  88888b.  888  888 
+// 888 Y888P 888 d8P  Y8b 888 "88b 888  888 
+// 888  Y8P  888 88888888 888  888 888  888 
+// 888   "   888 Y8b.     888  888 Y88b 888 
+// 888       888  "Y8888  888  888  "Y88888
+
+
+#menu {
+  z-index:1;
+  @include accelerate;
+
+  position:absolute;
+  top:0;
+  left:0;
+  width:60px;
+  height:100%;
+  // overflow:hidden;
+
+  @media screen and (max-width: $break-md) {
+    width:40px;
+  }
+}
+.menu-bg {
+  width:60px;
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  background:#000000;
+  @media screen and (max-width: $break-md) {
+    width:40px;
+  }
+}
+ul.menu-buttons,ul.menu-nav,ul.menu-subnav {
+  display:block;
+  list-style:none;
+  margin:0;
+  padding:0;
+  z-index:10;
+  li{
+    display:block;
+    margin:0;
+    padding:0;
+  }
+}
+
+ul.menu-buttons{
+  @include prefix(transition,all .5s);
+  background:#000000;
+  position:relative;
+  z-index:9;
+  &.sticky {
+    // margin-top:115px !important;
+  }
+  >li {
+    border-bottom:1px solid rgba(#464646,.5);
+    line-height:50px;
+      width:30px;
+      height:50px;
+    margin:0 auto;
+    text-align:center;
+    position:relative;
+
+    a {
+        display:block;
+        position:absolute;
+        width:30px;
+        height:50px;
+        top:0;
+        left:0;
+        color:#ffffff;
+    }
+
+    &.menu-buttons-menu,&.menu-buttons-filter {
+      a{
+        @include text-icon;
+        font-size:0;
+        &:hover {
+          color:$red1;
+        }
+      }
+    }
+
+    &.menu-buttons-menu {
+      a::before{
+        content: "\21";
+        font-size:16px;
+      }
+    }
+    &.menu-buttons-filter {
+      a {color:#555555;}
+      a::before{
+        content: "\22";
+        font-size:16px;
+      }
+    }
+    &.menu-buttons-new {
+
+      a {
+        @include prefix(transition,all .2s);
+        @include pretty-text;
+        display:inline-block;
+        font-size:13px;
+        background:#555555;
+        height:26px;
+        margin-top:12px;
+        margin-left:2px;
+        width:26px;
+        line-height:26px;
+        font-family:"Gibson";
+        font-weight:700;
+        color:#888888;
+      }
+      &.new-items {
+        a{
+          @include animation (0, .5s, notify, linear);
+          background:$red1;
+          color:#ffffff;
+        }
+      }
+      a:hover {
+        background:$red;
+        color:#ffffff;
+      }
+      a::before{
+        content:"+";
+      }
+    }
+  }
+
+}
+
+@include keyframe(notify) {
+  0% {
+    top:0px;
+    background:$red1;
+  }
+  25% {
+    top:-5px;
+    background:saturate($red1,10%);
+  }
+  50% {
+    top:0px;
+  }
+  75% {
+    top:-5px;
+  }
+  100% {
+    top:0px;
+    background:$red1;
+  }
+}
+
+ul.menu-nav,ul.menu-subnav{
+  position:absolute;
+  left:-230px;
+  padding:35px;
+  width:160px;
+  > li {
+    a{
+      position:relative;
+      border-bottom:1px solid rgba(#464646,.5);
+      @include text-subtitle;
+      font-size:12px;
+      display:block;
+      color:#ffffff;
+      padding: 25px 0;
+      &:hover {
+        color:$red1;
+        border-color:$red1;
+        top:-1px;
+        border-top:1px solid $red1;
+      }
+    }
+  }
+  li.title {
+    color:#464646;
+    font-family:"Gibson";
+    font-weight:300;
+    font-size:24px;
+    padding-bottom:30px;
+    border-bottom:1px solid rgba(#464646,.5);
+  }
+}
+ul.menu-nav {
+  top:0;
+}
+ul.menu-subnav {
+  position:absolute;
+  bottom:0;
+  >li {
+      &:first-child {
+        a {
+        border-top:1px solid rgba(#464646,.5);
+      }
+      }
+    a{
+      color:#464646;
+      &:hover{
+        top:0;
+        border-top-color: $red1;
+      }
+    }
+  }
+}
+
+
+
+.active-bar {
+  @include prefix(transition,max-height .3s);
+  @include prefix(box-shadow, 0px 5px 5px rgba(0,0,0,.05));
+  position:absolute;
+  left:0px;
+  display:block;
+  width:60px;
+  height:100%;
+  background:$red;
+  content:"";
+
+
+  &.sticky {
+    height:115px !important;
+    // top:0 !important;
+  }
+
+  @media screen and (max-width: $break-md) {
+    width:40px;
+  }
+}
+.article-buttons,.video-buttons{
+  position:absolute;
+  display:block;
+  width:50px;
+  top:0;
+  right:0;
+  background:$red;
+  a {
+    @include text-icon;
+    top:0;
+    left:0;
+    display:block;
+    width:100%;
+    height:50px;
+    color:#ffffff;
+    font-size:0;
+    text-align:center;
+    line-height:50px;
+    &:hover {
+      color:$red1;
+    }
+    &::before{
+      font-size:16px;
+    }
+  }
+  &.sticky {
+    @include animation(0,.5s,stickyEntrance,"swing");
+    // top:0 !important;
+    background:$red;
+    z-index:99;
+  }
+}
+  .close-button {
+    &::before{
+      content: "\2a";
+    }
+  }
+  .share-button {
+    &::before{
+      content: "\23";
+    }
+  }

@@ -1,0 +1,66 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-play, .icon-play-2, .icon-plus-alt, .icon-checkmark, .icon-tag, .icon-x, .icon-clock, .icon-alarm, .icon-menu {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-play:before {
+	content: "\22";
+}
+.icon-play-2:before {
+	content: "\21";
+}
+.icon-plus-alt:before {
+	content: "\23";
+}
+.icon-checkmark:before {
+	content: "\24";
+}
+.icon-tag:before {
+	content: "\25";
+}
+.icon-x:before {
+	content: "\26";
+}
+.icon-clock:before {
+	content: "\27";
+}
+.icon-alarm:before {
+	content: "\28";
+}
+.icon-menu:before {
+	content: "\29";
+}

@@ -1,0 +1,208 @@
+body {
+  background: url(../img/bg-blank.jpg) no-repeat center top,
+              url(../img/bg-pattern.gif) repeat-x top;
+  min-height:100%;
+  height:2400px;
+}
+p {
+  clear:both;
+}
+#cover {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(190,190,185, 0.8);
+  z-index:-1;
+}
+#destination-quiz {
+  display:block;
+  position:fixed;
+  background:#f0f0eb;
+  padding:10px 0 10px 0;
+  // box-shadow:0 3px 18px rgba(0,0,0, 0.3);
+  // max-width:1200px;
+  width:90%;
+  margin:50px auto 50px;
+  overflow:hidden;
+}
+
+.question-title h2{
+  text-transform:uppercase;
+  font-family:"Gotham Book",Gotham-Book,"Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.08em;
+  font-size:1.8em;
+}
+.question-title p {
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+.question-spacer{
+  min-height:425px;
+  position:relative;
+  margin-top:40px;
+  // max-width:100%;
+}
+.question-title {
+  text-align:center;
+  h1{}
+  p{font-style:italic;}
+}
+div.row.question-body {
+  // background:#ffffff;
+  position:relative;
+  padding:0 40px;
+  text-align:center;
+
+  .question-option {
+    position:relative;
+    // padding-top:15px;
+    margin-bottom:20px;
+
+    .image-container
+    {
+      display: inline-block;
+      position: relative;
+      border:3px solid #ffffff;
+      box-shadow:0 3px 0.6em rgba(0,0,0, 0.15);
+    }
+    .image-caption
+    {
+      color:#ffffff;
+      background:-webkit-linear-gradient(top, rgba(0,0,0, 0), rgba(0,0,0, .8));
+      padding:40px 10px 10px;
+      text-shadow: black 0 0 0.4em rgba(0,0,0, 0.5);
+      position: absolute;
+      text-transform:uppercase;
+      font-family:"Gotham Book",Gotham-Book,"Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+      letter-spacing:.2em;
+      font-weight: bold;
+      font-style: normal;
+      text-rendering: optimizeLegibility;
+      margin-top: 0.2em;
+      margin-bottom: 0.5em;
+      line-height: 1.2125em; 
+      font-size: 1em;
+    }
+    img {
+      transition: opacity 200ms ease-out;
+      opacity:.8;
+    }
+    
+    &:hover {
+      img {opacity:1;}
+    }
+    &.active{
+      .image-container{
+        background:url(../img/check.gif) no-repeat center;
+        background-color:#80b91d;
+      }
+      .image-caption{
+        background:transparent;
+      }
+      img {
+        opacity:0;}
+    }
+
+  }
+}
+
+.question-illustration {
+  text-align:center;
+  padding:25px 0 40px;
+  img {opacity:.3;}
+  .child {height:110px;}
+  img.hovering {opacity:.75;}
+  img.permanent {opacity:1;}
+  img.removing {opacity:.2;}
+}
+
+.interstitial {
+  position:absolute;
+  margin-left:50%;
+  left:-400px;
+  top:45px;
+  z-index:99;
+  .columns{
+  position:absolute;
+  background:#2e2e2d;
+  display:block;
+  width:800px;
+  height:420px;
+  margin:0 auto;
+  float:none;
+  padding:40px;
+  text-align:center;
+}
+h2{
+  text-transform:uppercase;
+  font-family:"Gotham Book",Gotham-Book,"Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing:.08em;
+  font-size:1.8em;
+  color:#ffffff
+}
+p {
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  color:#f0f0eb;
+  font-style:italic;
+  opacity:.7;
+}
+}
+
+.question-submit {
+  margin-top:20px;
+  text-align:center;
+  a {margin-left:10px;margin-right:10px;}
+}
+
+
+.question-pagination {
+  max-width:100%;
+ > .columns {
+  .page {
+    // padding:5px 0 0;
+    border-left:3px solid #e7e6e1;
+    padding:10px 20px 18px;
+    text-align:left;
+    opacity:.5;
+
+    h1 {
+      font-family:"Gotham Book",Gotham-Book,"Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+      float:left;
+      color:#aeaaa2;
+      margin:0 15px 0 0;
+    }
+    h3 {
+      text-transform:uppercase;
+      font-family:"Gotham Book",Gotham-Book,"Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+      letter-spacing:.08em;
+      font-size:1em;
+      color:#9c988d;
+      margin-bottom:3px;
+    }
+    span {
+      color:#aeaaa2;
+      font-size:.8em;
+      margin-bottom:0px;
+    }
+    &:hover{
+      background-color:#e7e6e1;
+      // cursor:pointer;
+    }
+    // &.complete {
+    //   background-color:#9d988d;
+    //   h1 {color:#e4e1d9;}
+    //   h3 {color:#ffffff;}
+    //   span{color:#e4e1d9}
+    // }
+    &.active {
+      background-color:#deddd6;
+      h1 {color:#9b9993;}
+      h3 {color:#89867f;}
+      span{color:#9b9993}
+    }
+  }
+ }
+}
+
+

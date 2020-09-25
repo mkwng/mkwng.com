@@ -1,0 +1,500 @@
+<html>
+<head>
+	<style>
+		body{
+			background:#424446;
+			margin:0;
+		}
+		svg#chart{
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+
+
+  <svg id="chart">
+  </svg>
+
+
+<script src="js/vendor/d3.v2.min.js"></script>
+<script src="js/vendor/dat.gui.js"></script>
+<script>
+
+/************************************************/
+/************************************************/
+/* Housekeeping */
+/************************************************/
+/************************************************/
+
+var svgWidth = window.innerWidth;
+var svgHeight = window.innerHeight;
+
+var employees = [];
+var svg = d3.select("#chart").style({
+	"width": svgWidth,
+	"height": svgHeight
+});
+
+
+function sortByStart(employeeList) {
+	function compareStart(a,b) {
+		var start = a.start-b.start;
+		return start;
+	}
+	return employeeList.sort(compareStart);
+}
+function sortByEnd(employeeList) {
+	function compareEnd(a,b) {
+		var end = a.end-b.end;
+		return end;
+	}
+	return employeeList.sort(compareEnd);
+}
+function sortByDuration(employeeList) {
+	function compareDuration(a,b) {
+		var duration = (a.start-a.end) - (b.start-b.end) 
+		return duration;
+	}
+	return employeeList.sort(compareDuration);
+}
+
+//Inserting strings at certain indices
+//http://stackoverflow.com/questions/4313841/javascript-how-can-i-insert-a-string-at-a-specific-index
+String.prototype.insert = function (index, string) {
+  if (index > 0)
+    return this.substring(0, index) + string + this.substring(index, this.length);
+  else
+    return string + this;
+};
+
+//Finding an object in an array
+//http://stackoverflow.com/questions/143847/best-way-to-find-an-item-in-a-javascript-array
+function include(arr,obj) {
+    return arr.indexOf(obj);
+}
+
+//Employee Class
+function Employee(EMAIL,NAME,TITLE,DATE) {
+	var email,name,team,title,start,end;
+
+	this.email = EMAIL;
+	this.name = NAME;
+	this.title = TITLE;
+	this.start = DATE;
+	this.end = DATE;
+
+
+	// console.log("Created person: "+this.name);
+}
+Employee.prototype.logInfo = function() {
+	console.log(this.name + " started on " + this.start + "and ended on " + this.end + ".");
+}
+Employee.prototype.clearOut = function() {
+	this.start = 0;
+	this.end = 0;
+}
+
+/************************************************/
+/************************************************/
+/* Retrieving and Parsing */
+/************************************************/
+/************************************************/
+
+//Retrieve the file list of all the csvs in the data directory, then run a callback on them
+function retrieveList(url,callback) {
+	d3.csv(url,function(data) {
+		callback(data);
+	});
+}
+
+//Parse a file list, and then update the employee array with the data within
+function parseList(filenames) {
+	//Only fire the init() function when you've finished running through all of them
+	//@iamaracinghorse told me to do it.
+	var finishedCounter = 0;
+	filenames.forEach(function(d) {
+		d3.csv("data/"+d.filename,function(data) {
+
+			//Let's parse the date string (the file name) into a Unix timestamp
+			//http://stackoverflow.com/questions/11509814/date-string-conversion-to-unix-timestamp-in-javascript-jquery
+			var dateString = (d.filename.substr(0, d.filename.lastIndexOf('.')) || d.filename).insert(4,"-").insert(7,"-").insert(10," 00:00:00");
+			var date = Date.parse(dateString);
+
+			updateEmployees(data,date);
+
+			//Is this the last in the series of CSVs? If not, add one and move on. If it is, let's continue!
+			if(++finishedCounter>=filenames.length) init();
+			else progressLoader(100*finishedCounter/filenames.length);
+		});
+	});
+}
+
+//Input: new list of employees and the date stamp; Update everything in the employee array
+function updateEmployees(newEmployees,date) {
+	//Ready to go through the list of new employees
+	newEmployees.forEach(function(d) {
+		//Assume this employee is new until proven otherwise.
+		var newEmployee = true;
+		for (var i = 0, len = employees.length; i < len; i++) {
+			//Is this name already in our array? 
+			//If so, they are not new. Let's update their start/end date.
+			if(employees[i].name == d.NAME) {
+				newEmployee = false;
+				if(employees[i].start > date) employees[i].start = date;
+				else if(employees[i].end < date) employees[i].end = date;
+				break;
+			}
+		}
+		//Turns out they are new? Let's add them to our array
+		if(newEmployee) employees.push(new Employee(d.EMAIL,d.NAME,d.TITLE,date));
+	});
+}
+
+
+/************************************************/
+/************************************************/
+/* Progress Bar */
+/************************************************/
+/************************************************/
+//Define the arc
+var arcProps = d3.svg.arc()
+    .outerRadius(100)
+    .innerRadius(90)
+    .startAngle(0)
+    .endAngle(0);
+//Create and style the arc
+var progressArc = svg.append("path")
+	.attr({
+		"transform": 	function(d,i) {
+							var x = svgWidth/2;
+							var y = svgHeight/2;
+							// console.log(startScale(d.start-minStart));
+							return "translate("+[x,y]+")";
+						}
+	})
+	.classed("progress",true)
+	.attr("d",arcProps)
+	.style("fill","#ffffff");
+//Scaling percentage into pi scale
+var piScale = d3.scale.linear()
+	.domain([0,100])
+	.range([0,2*Math.PI]);
+//This is triggered by parseList() each time it finishes loading a CSV
+function progressLoader(percent) {
+	arcProps.endAngle(piScale(percent));
+	progressArc.attr("d",arcProps);
+}
+
+
+/************************************************/
+/************************************************/
+/* Dat GUI workshop.chromeexperiments.com */
+/************************************************/
+/************************************************/
+function renderGui(settings) {
+
+	var gui = new dat.GUI();
+	var typeController = gui.add(settings, 'type', [ 'bar', 'arc'] );
+	var sortController = gui.add(settings, 'sort', [ 'start', 'end', 'duration'] );
+
+	typeController.onChange(function() {
+		if(settings.type=='bar') drawBars(employees,{sort:settings.sort});
+		else if(settings.type=='arc') drawArcs(employees,{sort:settings.sort});
+	});
+	sortController.onChange(function() {
+		if(settings.type=='bar') drawBars(employees,{sort:settings.sort});
+		else if(settings.type=='arc') drawArcs(employees,{sort:settings.sort});
+	});
+}
+
+
+
+/************************************************/
+/************************************************/
+/* Drawing */
+/************************************************/
+/************************************************/
+var GraphProps = function() {
+	this.type = 'bar';
+	this.sort = 'start';
+}
+
+var textgroup,textbox,texts;
+function renderTextbox() {
+	textgroup = svg.append("g").classed("text",true)		
+	.attr({
+		"transform": "translate("+svgWidth/2+","+(svgHeight-40)+")"
+	});
+
+	textgroup.append("rect");
+	textbox = textgroup.select("rect");
+
+	textgroup.append("text");
+	texts = textgroup.select("text");
+
+
+
+	textgroup.style({"visibility": "hidden","z-index":"2"});
+    texts
+    	.text("")
+        .attr({
+          "font-family": "Helvetica",
+          "fill":"#FFFFFF",
+          "text-anchor": "middle",
+          "alignment-baseline": "middle",
+          x: 0,
+          y: 0
+        });
+    textbox
+    	.attr({
+    		"fill":"#ff6644",
+    		"width":200,
+    		"height":50,
+    		"x":-100,
+    		"y":-25
+    	});
+}
+
+function drawBars(employeeData, args) {
+
+	svg.selectAll("g.arc").remove()
+
+	var employees =  employeeData.slice(0);
+
+	chartHeight = svgHeight;
+	barWidth = Math.floor(svgWidth/employees.length)-1;
+	cx = 0;
+	cy = 0;
+
+    //Scaling the duration of employment to the chart height
+    var minTime = d3.min(employees, function(d) { return d.end-d.start });
+    var maxTime = d3.max(employees, function(d) { return d.end-d.start });
+    var rangeScale = d3.scale.linear()
+    	.domain([0,maxTime])
+    	.range([3,chartHeight]);
+    //Scaling the start date to the chart height
+    var minStart = d3.min(employees, function(d) { return d.start });
+    var maxStart = d3.max(employees, function(d) { return d.start });
+	var startScale = d3.scale.linear()
+		.domain([0,maxStart-minStart])
+		.range([0,chartHeight]);
+
+
+	if(args.sort == "start") {
+		var employees2 = sortByStart(employeeData.slice(0));
+	} else if(args.sort == "duration") {
+		var employees2 = sortByDuration(employeeData.slice(0));
+	} else if(args.sort == "end") {
+		var employees2 = sortByEnd(employeeData.slice(0));
+	}
+
+
+	//D3 Step 1/3: Update...
+	var bars = svg.selectAll("g.bar")
+		.data(employeeData);
+
+	//D3 Step 2/3: Enter...
+	var barEnter = bars.enter()
+		.append("g")
+			.classed("bar",true)
+		.append("rect")
+	        .attr("fill", "#F1F2F2")
+	        .attr("height", 0)
+	        .classed("data",true);
+
+	//Transitioning
+	bars.transition().attr({
+		"transform": 	function(d) {
+							var x = cx + employees2.indexOf(d) * (barWidth+1);
+							var y = startScale(d.start-minStart);
+							return "translate("+[x,y]+")";
+						}
+	});
+	bars.select("rect").transition().attr({
+		"width": barWidth,
+		"height": function(d) {return rangeScale(d.end-d.start);}
+	})
+	    .attr("title", function(d){return d.name});
+
+	//D3 Step 3/3: Exit...
+	bars.exit().remove();
+
+	renderTextbox();
+
+	bars.on("mouseover", function() {
+        d3.select(this).select("rect").attr("fill", "#ff6644")
+        textgroup.style("visibility", "visible");
+        texts.text(d3.select(this).select("rect").attr("title"))
+	}).on("mouseout", function() {
+        d3.select(this).select("rect").attr("fill", "#F1F2F2")
+        textgroup.style("visibility", "hidden");
+	});
+
+
+}
+
+function drawArcs(employeeData,args) {
+
+	svg.selectAll("g.bar").remove()
+
+	var employees = employeeData.slice(0);
+
+    //Scaling the start date to the chart height
+    var minStart = d3.min(employees, function(d) { return d.start });
+    var maxEnd = d3.max(employees, function(d) { return d.end });
+	var startScale = d3.scale.linear()
+		.domain([minStart,maxEnd])
+		.range([Math.PI/2,2.5*Math.PI]);
+	var maxDimension = Math.min(svgWidth,svgHeight)/2;
+	var radiusScale = d3.scale.linear()
+		.domain([0,employees.length])
+		.range([0,maxDimension]);
+
+
+
+	if(args.sort == "start") {
+		var employees2 = sortByStart(employeeData.slice(0));
+	} else if(args.sort == "duration") {
+		var employees2 = sortByDuration(employeeData.slice(0));
+	} else if(args.sort == "end") {
+		var employees2 = sortByEnd(employeeData.slice(0));
+	}
+
+	//D3 Step 1/3: Update...
+	var arcs = svg.selectAll("g.arc")
+		.data(employees);
+
+	//D3 Step 2/3: Enter...
+	var arcEnter = arcs.enter()
+		.append("g")
+			.classed("arc",true)
+		.append("path")
+	        .attr("fill", "#F1F2F2")
+			.attr("title", function(d){return d.name});
+
+	var arcProps = d3.svg.arc()
+	    .outerRadius(function(d) {return radiusScale(employees2.indexOf(d)+1)-1;})
+	    .innerRadius(function(d) {return radiusScale(employees2.indexOf(d));})
+	    .startAngle(function(d) {return startScale(d.start);})
+	    .endAngle(function(d) {return startScale(d.end);});
+
+	arcs.transition().attr({
+		"transform": 	function(d) {
+							var x = svgWidth/2;
+							var y = svgHeight/2;
+							return "translate("+[x,y]+")";
+						}
+	})
+	arcs.select("path").transition().attr("d",arcProps);
+
+	//D3 Step 3/3: Exit...
+	arcs.exit().remove();
+
+	renderTextbox();
+
+	arcs.on("mouseover", function() {
+        d3.select(this).select("path").attr("fill", "#ff6644")
+        textgroup.style("visibility", "visible");
+        texts.text(d3.select(this).select("path").attr("title"))
+	}).on("mouseout", function() {
+        d3.select(this).select("path").attr("fill", "#F1F2F2")
+        textgroup.style("visibility", "hidden");
+	});
+
+
+}
+
+/************************************************/
+/************************************************/
+/* Analysis */
+/************************************************/
+/************************************************/
+function calcHalflife(employees) {
+	var halflife;
+
+	//http://stackoverflow.com/questions/597588/how-do-you-clone-an-array-of-objects-in-javascript
+	var employeeList = employees.slice(0);
+    var maxEnd = d3.max(employeeList, function(d) { return d.end });
+    var minStart = d3.min(employeeList, function(d) { return d.start });
+    var maxStart = maxEnd;
+	halfloop(employeeList);
+
+	function halfloop(loopEmployeeList) {
+		var total = loopEmployeeList.length;
+		var count = 0;
+		var employeeDuration = sortByDuration(loopEmployeeList).reverse();
+		for(var i=0;i<loopEmployeeList.length;i++){
+			//Did this person start after our maxStart date? If so remove them and start over.
+			if(loopEmployeeList[i].start>maxStart) {
+				//Remove this person from the list and start over.
+				// console.log("Started after our max date: "+loopEmployeeList[i].name);
+				var newList = loopEmployeeList.slice(0);
+				newList.splice(i,1);
+				halfloop(newList);
+				break;
+			}
+			//Is it actually a decay? Or are they still working here?
+			if (loopEmployeeList[i].end==maxEnd) {
+				//Still working here... Update the latest start date we'll accept 
+				maxStart = loopEmployeeList[i].start < maxStart ? loopEmployeeList[i].start : maxStart;
+				//Remove this person from the list and start over.
+				// console.log("Not actually a decay: "+loopEmployeeList[i].name);
+				var newList = loopEmployeeList.slice(0);
+				newList.splice(i,1);
+				halfloop(newList);
+				break;
+			}
+
+			if(++count/total>.5) {
+				if(total<10) return "Sample size too small";
+				halflife = loopEmployeeList[i].end-loopEmployeeList[i].start;
+				break;
+			}
+
+		}
+	}
+	return halflife;
+}
+
+/************************************************/
+/************************************************/
+/* Run this */
+/************************************************/
+/************************************************/
+
+
+//This code basically kicks off the whole thing.
+retrieveList("data/list.csv",parseList);
+
+//This is triggered when all CSV files are loaded.
+function init() {
+
+	progressArc.remove();
+	var settings = new GraphProps();
+
+	renderGui(settings);
+
+	// employees = sortByStart(employees);
+	// employees = sortByDuration(employees);
+	// employees = sortByEnd(employees);
+
+    var cx = 0;
+    var cy = 0;
+    var chartHeight = 0;
+    var barWidth = 0;
+
+    drawBars(employees,{sort:"start",cx:"cx",cy:"cy",chartHeight:"chartHeight",barWidth:"barWidth"});
+    // drawArcs(employees,{sort:"start",cx:"cx",cy:"cy",chartHeight:"chartHeight",barWidth:"barWidth"});
+
+    var halflife = calcHalflife(employees);
+	console.log("Half life is " + Math.floor(halflife/(1000*60*60*24)) + " days");
+	console.log("Mean lifetime is " + Math.floor((halflife/Math.log(2))/(1000*60*60*24)) + " days");
+
+
+}
+
+
+</script>
+<body>
+</html>

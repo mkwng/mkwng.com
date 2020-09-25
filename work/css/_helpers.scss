@@ -1,0 +1,42 @@
+
+@mixin prefix ( $property, $value... ) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
+}
+
+@mixin pretty-text {
+    @include prefix(font-smoothing, antialiased);
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin accelerate {
+  // Enable 3D transforms, activating hardware acceleration
+  @include prefix(transform,translateZ(0));
+  // Fixing flickering bug
+  @include prefix(backface-visibility,hidden);
+  // Some bug fix, I forget why this is in here.
+  @include prefix(perspective,hidden);
+}
+
+@mixin keyframe ($animation_name){
+  @-webkit-keyframes $animation_name {@content;}
+  @-moz-keyframes $animation_name {@content;}
+  @-o-keyframes $animation_name {@content;}
+  @keyframes $animation_name {@content;}
+}
+@mixin animation ($delay, $duration, $animation, $timing: linear) {
+    @include prefix(animation-delay, $delay);
+    @include prefix(animation-duration, $duration);
+    @include prefix(animation-name, $animation);
+    @include prefix(animation-fill-mode, forwards); /* this prevents the animation from restarting! */
+    @include prefix(animation-timing-function, $timing);
+}
+
+
+@include keyframe(spinner) {
+  0%   { @include prefix(transform,rotateZ(0deg)); }
+  100% { @include prefix(transform,rotateZ(360deg));  }
+}

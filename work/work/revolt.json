@@ -1,0 +1,12 @@
+{ "work" : {
+
+  "title" : "Revolt",
+  "desc" : "Expanding what music entertainment can be online",
+  "body1" : "<h3>The new number one name in music</h3><p>As Diddy prepared to launch a brand new television network to the world and redefine what music television can be on the air, we were collaborating with him and his team to do the same on the internet.</p>",
+  "body2" : "<h3>What I did</h3><p>I contributed in many areas during my time on this project, from early stage concepting, feature prioritization, interaction design, visual design, rapid prototyping, and front-end development.</p>",
+  "bodyimg" : "<img src=\"img/work/revolt/body1.jpg\" alt=\"Creating Objects\"/>",
+  "body3" : "<h3>Conclusion</h3><p>As of October 2013, the site is preparing for launch.</p>",
+  "imageendcap" : 1,
+  "imageheader" : 1
+
+}}

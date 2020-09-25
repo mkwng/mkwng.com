@@ -1,0 +1,147 @@
+$red: #9e1c20;
+
+$break-small: 320px;
+$break-medium: 800px;
+$break-large: 1200px;
+
+html,body,*{
+  padding:0;
+  margin:0;
+}
+.feature {
+  -webkit-transition: height .5s;
+  position:relative;
+  width:100%;
+  height:600px;
+
+  @media screen and (max-width: $break-medium) {
+    height:400px;
+  }
+  @media screen and (max-width: $break-small) {
+  }
+
+  &.diamond { background:url(img/bg.jpg); }
+  &.dark { background:#000000;color:#ffffff; }
+
+  &.isolated{
+    .feature-image{
+      z-index:2;
+    }
+  }
+  &.left{
+    .feature-image{
+      position:absolute;
+      left:50%;
+    }
+    .feature-content {
+      width:50%;
+    }
+
+    &.isolated{
+      .feature-image{
+        background-position:0 50%;
+      }
+    }
+  }
+  &.right{
+    .feature-image{
+      float:left;
+    }
+    &.isolated{
+      .feature-image{
+        background-position:100% 50%;
+      }
+    }
+  }
+}
+
+
+  .feature-image {
+    -webkit-transition: height .5s;
+    background-size:cover;
+    background-repeat:no-repeat;
+    height:600px;
+    width:50%;
+    background-position:50% 50%;
+    @media screen and (max-width: $break-medium) {
+      z-index:0 !important;
+      width: 100%;
+      position:absolute;
+      left:0 !important;
+      height:400px;
+    }
+    @media screen and (max-width: $break-small) {
+    }
+  }
+
+  .feature-content {
+    -webkit-transition: all .5s;
+    position:relative;
+    z-index:1;
+    padding-top:80px;
+    padding-left:200px;
+    @media screen and (max-width: $break-large) {
+      padding:120px 40px 0;
+    }
+    @media screen and (max-width: $break-medium) {
+      padding:120px 40px 0;
+      width:100% !important;
+    }
+    @media screen and (max-width: $break-small) {
+      padding:40px 40px 0;
+    }
+  }
+    .feature-content-category{
+      font-family: "Passion One","Helvetica Neue",Helvetica,Arial,san-serif;
+      text-transform:uppercase;
+      font-weight:bold;
+      letter-spacing:1px;
+      font-size:12px;
+      color:$red;
+      @media screen and (max-width: $break-large) {
+        
+      }
+      @media screen and (max-width: $break-medium) {
+        font-size:10px;
+    }
+    }
+    .feature-content-title{
+      font-family: "Passion One","Helvetica Neue",Helvetica,Arial,san-serif;
+      text-transform:uppercase;
+      font-size:85px;
+      line-height:85px;
+      font-style:italic;
+      @media screen and (max-width: $break-large) {
+        font-size:60px;
+        line-height:60px
+        
+      }
+      @media screen and (max-width: $break-medium) {
+        font-size:40px;
+        line-height:40px
+      }
+    }
+    .feature-content-subtitle{      
+      font-family: "Passion One","Helvetica Neue",Helvetica,Arial,san-serif;
+      font-weight:bold;
+      font-size:18px;
+      margin: 0 0 40px;
+      @media screen and (max-width: $break-large) {
+        
+      }
+      @media screen and (max-width: $break-medium) {
+        font-size:14px;
+      }
+    }
+    .feature-content-cta{
+      display:inline-block;
+      background:$red;
+      padding:10px 20px;
+      color:#ffffff;
+      font-family: "Passion One","Helvetica Neue",Helvetica,Arial,san-serif;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:12px;
+      text-decoration:none;
+      font-weight:bold;
+    }

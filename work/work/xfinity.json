@@ -1,0 +1,13 @@
+{ "work" : {
+
+  "title" : "Xfinity",
+  "desc" : "Reimagining what an onboarding experience can be for a storied brand",
+  "video" : "<iframe src=\"//www.youtube.com/embed/SOYLsR5tk4w\" frameborder=\"0\" allowfullscreen></iframe>",
+  "body1" : "<h3>How do you keep a customer engaged before they're even a customer?</h3><p>Xfinity had a problem. When new customers subscribe to Xfinity, there's typically a wait of about a week between confirming and actually getting service into their homes. Through user feedback, they found that customers were very likely to be unsatisfied during this timeframe, particularly because they felt neglected and frustrated at the lack of service.</p>",
+  "body2" : "<h3>What I did</h3><p>Working with one other interaction designer, and taking what we knew about Xfinity's service capabilities, we reimagined what the entire experience could be for a brand new customer. We generated user flows and wireframed out each step and every state. Working with a visual designer and a developer, we fleshed out the designs and created an interactive prototype.</p>",
+  "bodyimg" : "<img src=\"img/work/xfinity/body1.jpg\" alt=\"Creating Objects\"/>",
+  "body3" : "<h3>Conclusion</h3><p>The result was a brand new experience, designed to keep a new customer informed of what services they had available to them, even before their equipment arrived, as well as key touchpoints to make them feel involved with the process. We also reimagined what an intuitive installation guide would be.</p>",
+  "imageendcap" : 1,
+  "imageheader" : 1
+
+}}

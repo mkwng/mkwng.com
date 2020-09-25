@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Destination Quiz</title>
+
+  <link rel="stylesheet" href="css/normalize.css" />
+  
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  
+
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+<form id="destination-quiz" action="form.php" method="post">
+  <div class="row question-spacer"><div class="large-12 columns">
+
+  	<div class="row question question-1">
+    	<div class="large-12 columns">
+    		<div class="row question-title">
+    			<div class="large-12 columns">
+    				<h2>Where do you want to go?</h2>
+            <p>Let's start by narrowing down our destinations a little!</p>
+    			</div>
+    		</div>
+
+    		<div class="row question-body">
+    			<div class="large-4 columns question-option">
+    				  <label for="where-domestic">
+                <img src="img/where-domestic.jpg" alt="Domestic" /> <br />
+    				    <input name="where" type="radio" value="domestic" id="where-domestic">
+    				  </label>
+    			</div>
+          <div class="large-4 columns question-option">
+              <label for="where-either">
+                <img src="img/where-both.jpg" alt="Either one!" /> <br />
+                <input name="where" type="radio" value="both" id="where-either">
+              </label>
+    			</div>
+          <div class="large-4 columns question-option">
+              <label for="where-international">
+                <img src="img/where-international.jpg" alt="International" /> <br />
+                <input name="where" type="radio" value="international" id="where-international">
+              </label>
+    			</div>
+    		</div>
+    	</div>
+  	</div> <!-- /question -->
+
+    <div class="row question question-2">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>What do you want to do?</h2>
+            <p>Are you looking to experience human culture, or to commune with nature?</p>
+          </div>
+        </div>
+
+        <div class="row question-body">
+          <div class="large-4 columns question-option">
+              <label for="what-city">
+                <img src="img/what-city.jpg" alt="Big City" /> <br />
+                <input name="what" type="radio" value="city" id="what-city">
+              </label>
+          </div>
+          <div class="large-4 columns question-option">
+              <label for="what-either">
+                <img src="img/what-both.jpg" alt="A little of both!" /> <br />
+                <input name="what" type="radio" value="both" id="what-either">
+              </label>
+          </div>
+          <div class="large-4 columns question-option">
+              <label for="what-outdoors">
+                <img src="img/what-outdoors.jpg" alt="Great Outdoors" /> <br />
+                <input name="what" type="radio" value="outdoors" id="what-outdoors">
+              </label>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+    <div class="row question question-3">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>What would make for your ideal escape?</h2>
+            <p>Select as many (or as few!) as you'd like</p>
+          </div>
+        </div>
+        <div class="row question-body">
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="escape-01">
+                    <img src="img/escape-unwinding1.jpg" alt="Unwinding" /> <br />
+                    <input name="escape[]" type="checkbox" value="Unwinding" id="escape-01">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-02">
+                    <img src="img/escape-local.jpg" alt="Local Culture" /> <br />
+                    <input name="escape[]" type="checkbox" value="Local Culture" id="escape-02">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-03">
+                    <img src="img/escape-music.jpg" alt="Music" /> <br />
+                    <input name="escape[]" type="checkbox" value="Music" id="escape-03">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-04">
+                    <img src="img/escape-sport.jpg" alt="Sports" /> <br />
+                    <input name="escape[]" type="checkbox" value="Sports" id="escape-04">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="escape-05">
+                    <img src="img/escape-art.jpg" alt="Art" /> <br />
+                    <input name="escape[]" type="checkbox" value="Art" id="escape-05">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-06">
+                    <img src="img/escape-theater.jpg" alt="Theater" /> <br />
+                    <input name="escape[]" type="checkbox" value="Theater" id="escape-06">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-07">
+                    <img src="img/escape-shopping.jpg" alt="Shopping" /> <br />
+                    <input name="escape[]" type="checkbox" value="Shopping" id="escape-07">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-08">
+                    <img src="img/escape-nightlife.jpg" alt="Nightlife" /> <br />
+                    <input name="escape[]" type="checkbox" value="Nightlife" id="escape-08">
+                  </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+    <div class="row question question-4">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>What would make for your ideal environment?</h2>
+            <p>Select as many (or as few!) as you'd like</p>
+          </div>
+        </div>
+        <div class="row question-body">
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="environment-01">
+                    <img src="img/environment-historic.jpg" alt="Historic landmarks" /> <br />
+                    <input name="environment[]" type="checkbox" value="Historic landmarks" id="environment-01">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-02">
+                    <img src="img/environment-offbeat.jpg" alt="Offbeat neighborhoods" /> <br />
+                    <input name="environment[]" type="checkbox" value="Offbeat neighborhoods" id="environment-02">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-03">
+                    <img src="img/environment-coast.jpg" alt="Coasts &amp; waterfronts" /> <br />
+                    <input name="environment[]" type="checkbox" value="Coasts &amp; waterfronts" id="environment-03">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-04">
+                    <img src="img/environment-quaint.jpg" alt="Quaint communities" /> <br />
+                    <input name="environment[]" type="checkbox" value="Quaint communities" id="environment-04">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="environment-05">
+                    <img src="img/environment-downtown.jpg" alt="Bustling downtowns" /> <br />
+                    <input name="environment[]" type="checkbox" value="Bustling downtowns" id="environment-05">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-06">
+                    <img src="img/environment-architecture.jpg" alt="Iconic architecture" /> <br />
+                    <input name="environment[]" type="checkbox" value="Iconic architecture" id="environment-06">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-07">
+                    <img src="img/environment-park.jpg" alt="Parks &amp; playgrounds" /> <br />
+                    <input name="environment[]" type="checkbox" value="Parks &amp; playgrounds" id="environment-07">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-08">
+                    <img src="img/environment-resort.jpg" alt="Resorts &amp; retreats" /> <br />
+                    <input name="environment[]" type="checkbox" value="Resorts &amp; retreats" id="environment-08">
+                  </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+    <div class="row question question-5">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>What would make for your ideal escape?</h2>
+            <p>Select as many (or as few!) as you'd like</p>
+          </div>
+        </div>
+        <div class="row question-body">
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="escape-09">
+                    <img src="img/escape-unwinding2.jpg" alt="Unwinding" /> <br />
+                    <input name="escape[]" type="checkbox" value="Unwinding" id="escape-09">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-10">
+                    <img src="img/escape-drive.jpg" alt="Scenic drives" /> <br />
+                    <input name="escape[]" type="checkbox" value="Scenic drives" id="escape-10">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-11">
+                    <img src="img/escape-camping.jpg" alt="Camping" /> <br />
+                    <input name="escape[]" type="checkbox" value="Camping" id="escape-11">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-12">
+                    <img src="img/escape-snow.jpg" alt="Snow sports" /> <br />
+                    <input name="escape[]" type="checkbox" value="Snow sports" id="escape-12">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="escape-13">
+                    <img src="img/escape-golf.jpg" alt="Golfing" /> <br />
+                    <input name="escape[]" type="checkbox" value="Golfing" id="escape-13">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-14">
+                    <img src="img/escape-education.jpg" alt="Education" /> <br />
+                    <input name="escape[]" type="checkbox" value="Education" id="escape-14">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-15">
+                    <img src="img/escape-hiking.jpg" alt="Hiking" /> <br />
+                    <input name="escape[]" type="checkbox" value="Hiking" id="escape-15">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="escape-16">
+                    <img src="img/escape-sport2.jpg" alt="Sports" /> <br />
+                    <input name="escape[]" type="checkbox" value="Sports" id="escape-16">
+                  </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+    <div class="row question question-6">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>What would make for your ideal environment?</h2>
+            <p>Select as many (or as few!) as you'd like</p>
+          </div>
+        </div>
+        <div class="row question-body">
+          <div class="large-12 columns">
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="environment-09">
+                    <img src="img/environment-tropical.jpg" alt="Tropical" /> <br />
+                    <input name="environment[]" type="checkbox" value="Tropical" id="environment-09">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-10">
+                    <img src="img/environment-beach.jpg" alt="Beaches" /> <br />
+                    <input name="environment[]" type="checkbox" value="Beaches" id="environment-10">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-11">
+                    <img src="img/environment-island.jpg" alt="Islands" /> <br />
+                    <input name="environment[]" type="checkbox" value="Islands" id="environment-11">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-12">
+                    <img src="img/environment-mountain.jpg" alt="Mountains" /> <br />
+                    <input name="environment[]" type="checkbox" value="Mountains" id="environment-12">
+                  </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-3 columns question-option">
+                  <label for="environment-13">
+                    <img src="img/environment-foliage.jpg" alt="Foliage" /> <br />
+                    <input name="environment[]" type="checkbox" value="Foliage" id="environment-13">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-14">
+                    <img src="img/environment-desert.jpg" alt="Deserts" /> <br />
+                    <input name="environment[]" type="checkbox" value="Deserts" id="environment-14">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-15">
+                    <img src="img/environment-coasts.jpg" alt="Coasts &amp; waterfronts" /> <br />
+                    <input name="environment[]" type="checkbox" value="Coasts &amp; waterfronts" id="environment-15">
+                  </label>
+              </div>
+              <div class="large-3 columns question-option">
+                  <label for="environment-16">
+                    <img src="img/environment-naturalwonder.jpg" alt="Natural wonders" /> <br />
+                    <input name="environment[]" type="checkbox" value="Natural wonders" id="environment-16">
+                  </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+    <div class="row question question-7">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>When do you want to leave?</h2>
+            <p>Knowing very broadly your vacation schedule will help us return relevant more results.</p>
+          </div>
+        </div>
+
+
+        <div class="row question-body">
+
+          <div class="row timeline">
+            <div class="large-12 columns">
+              <div class="row timeline-date">
+                <div class="large-9 columns">
+                  2013
+                </div>
+                <div class="large-3 columns">
+                  2014
+                </div>
+              </div>
+              <div class="row timeline-background">
+                <div class="large-12 columns">
+                  <div class="row">
+                    <div class="large-1 columns ">Apr</div>
+                    <div class="large-1 columns ">May</div>
+                    <div class="large-1 columns ">Jun</div>
+                    <div class="large-1 columns ">Jul</div>
+                    <div class="large-1 columns ">Aug</div>
+                    <div class="large-1 columns ">Sep</div>
+                    <div class="large-1 columns ">Oct</div>
+                    <div class="large-1 columns ">Nov</div>
+                    <div class="large-1 columns ">Dec</div>
+                    <div class="large-1 columns ">Jan</div>
+                    <div class="large-1 columns ">Feb</div>
+                    <div class="large-1 columns ">Mar</div>
+                  </div>
+                </div>
+              </div>
+            <div class="row timeline-active">
+              <div class="large-3 columns"></div>
+            </div>
+          </div>
+        </div>
+
+          <div class="large-3 columns question-option">
+              <label for="when-spring">
+                <input name="when" type="radio" value="spring" id="when-spring">
+                <h3>Right now!</h3>
+              </label>
+          </div>
+          <div class="large-3 columns question-option">
+              <label for="when-summer">
+                <input name="when" type="radio" value="summer" id="when-summer">
+                <h3>In a few months</h3>
+              </label>
+          </div>
+          <div class="large-3 columns question-option">
+              <label for="when-fall">
+                <input name="when" type="radio" value="fall" id="when-fall">
+                <h3>A bit further out</h3>
+              </label>
+          </div>
+          <div class="large-3 columns question-option">
+              <label for="when-winter">
+                <input name="when" type="radio" value="winter" id="when-winter">
+                <h3>I'm planning ahead</h3>
+              </label>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+    <div class="row question question-8">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h2>Is the cost of your destination a concern?</h2>
+            <p>Once you arrive, how much money would you like to spend at your vacation destination?</p>
+          </div>
+        </div>
+
+        <div class="row question-body">
+          <div class="large-3 columns question-option">
+              <label for="cost-1">
+                <input name="cost" type="radio" value="$" id="cost-1">
+                <h3>$</h3>
+                <p>I'd like each dollar I spend to go as far as it possibly can.</p>
+              </label>
+          </div>
+          <div class="large-3 columns question-option">
+              <label for="cost-2">
+                <input name="cost" type="radio" value="$$" id="cost-2">
+                <h3>$$</h3>
+                <p>I'm willing to spend a modest amount.</p>
+              </label>
+          </div>
+          <div class="large-3 columns question-option">
+              <label for="cost-3">
+                <input name="cost" type="radio" value="$$$" id="cost-3">
+                <h3>$$$</h3>
+                <p>I'm willing to shell out a little more in exchange for a bit more comfort.</p>
+              </label>
+          </div>
+          <div class="large-3 columns question-option">
+              <label for="cost-4">
+                <input name="cost" type="radio" value="$$$$" id="cost-4">
+                <h3>$$$$</h3>
+                <p>Price is of no concern to me.</p>
+              </label>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /question -->
+
+
+    <div class="row question">
+      <div class="large-12 columns">
+        <div class="row question-title">
+          <div class="large-12 columns">
+            <h1>Thank you!</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div></div>
+	<div class="row question-submit">
+    <a href="#" class="button secondary round button-prev">Go back</a>
+		<a href="#" class="button round button-next">Continue</a>
+	</row>
+
+</form>
+
+
+  <script src="js/vendor/jquery.js"></script>
+  <!--
+  
+  <script src="js/foundation.min.js"></script>
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  -->
+  
+  <script src="js/main.js"></script>
+
+
+  <script>
+    // document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
+</body>
+</html>

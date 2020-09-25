@@ -1,0 +1,13 @@
+{ "work" : {
+
+  "title" : "AARP",
+  "desc" : "Making travel tips accessible for audiences of all ages and backgrounds",
+  "body1" : "<h3>Where will you go next?</h3><p>March 2013, I joined a team at Huge that was helping a brand find relevance in an increasingly digital world. <a href=\"http://aarp.org\">AARP</a> was noticing that its customer base was increasingly turning to the internet to help them plan their lives. Traditionally regarded as 'that discount company,' AARP was also looking for was to provide value to its members in new ways as a service, rather than commodity. What resulted was a new portal to bring travel tips to this audience in a intuitive and useful fashion.</p>",
+  "body2" : "<h3>What I did</h3><p>I contributed to this project as an interaction designer and interactive prototyper. Working with the project lead and one other interaction designer, we architected the site, defined user flows and drew out wireframes for each page and state. My contributions also included a few prototypes for user testing, as well as promoting our ideas to the client during presentations.</p>",
+  "bodyimg" : "<img src=\"img/work/aarp/body1.jpg\" alt=\"Creating Objects\"/>",
+  "body3" : "<h3>Conclusion</h3><p>By the end of the project, we had created a brand new tool for AARP that allowed its customers to complete many of the stages of vacation planning. The complete feature set includes a destination finder, destination tips and map explorer, an itinerary planner, and much more.</p>",
+  "site" : "http://travel.aarp.org",
+  "imageendcap" : 1,
+  "imageheader" : 1
+
+}}

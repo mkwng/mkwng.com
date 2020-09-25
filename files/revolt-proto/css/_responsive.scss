@@ -1,0 +1,251 @@
+
+/************************************************************************************
+Styles
+*************************************************************************************/
+
+
+body {
+}
+
+a {
+}
+h1,h2,h3,h4 {
+}
+p{
+}
+
+/************************************************************************************
+Header
+*************************************************************************************/
+
+@media screen and (max-width: $break-md) {
+header {
+  ul.header-menu {
+    width:44px;
+    height:44px;
+    background:$grey7;
+    line-height:44px;
+    text-align:center;
+    &::before{
+      color:$grey9;
+      @include text-icon;
+      content: "\29";
+    }
+    li{
+      display:none;
+    }
+  }
+}
+}
+
+#content {
+}
+
+
+  /************************************************************************************
+  Content Timeline
+  *************************************************************************************/
+
+@media screen and (max-width: $break-md) {
+}
+@media screen and (max-width: $break-sm) {
+}
+@media screen and (min-width: $break-lg) {
+}
+
+  .content-timeline {
+    @media screen and (max-width: $break-md) {
+      width:100%;
+
+      ul.content-timeline-menu{
+        width:100%;
+        li {
+          width:33.33%;
+          float:left;
+          a {
+            border-left:1px solid $grey7;
+            border-bottom:1px solid $grey7;
+            background:$grey3;
+            line-height:16px;
+            padding-top:5px;
+            padding-bottom:5px;
+            padding-bottom:1005px; 
+            margin-bottom:-1000px;
+            &:hover{
+              background:$grey4;
+            }
+          }
+        }
+      }
+    }
+  }
+    .content-timeline-newest{
+      &::before{
+      }
+    }
+
+
+  /************************************************************************************
+  Content Feed
+  *************************************************************************************/
+
+  .content-feed {
+    @media screen and (max-width: $break-md) {
+      margin-left:$hgrid;
+    }
+    @media screen and (max-width: $break-sm) {
+      margin-left:0;
+    }
+  }
+    .content-feed-article {
+      @media screen and (max-width: $break-md) {
+        padding-left:10px;
+        padding-right:10px;
+      }
+      @media screen and (min-width: $break-lg) {
+        padding-left:$hgrid*2;
+        padding-right:$hgrid*2;
+      }
+      &::before {
+      }
+
+      &::after {
+      }
+
+
+      .more {
+        &::before{
+        }
+        &:hover {
+        }
+      }
+
+      &:hover {
+        &::before {}
+      }
+
+
+      /***********************************************************************
+      Article Types
+      ************************************************************************/
+
+      &.article-news {
+      }
+      &.article-video {
+        .content-feed-article-title::after{
+        }
+      }
+      &.article-alert {
+        @media screen and (max-width: $break-md) {
+          height:auto;
+          .content-feed-article-category{
+            display:block;
+          }
+          .content-feed-article-title{
+          }
+        }
+
+        &::after {
+        }
+      }
+
+
+      /***********************************************************************
+      Article With Videos
+      ************************************************************************/
+
+      &.video-left,&.video-right {
+        @media screen and (max-width: $break-md) {
+          height:auto;
+          padding-left:10px;
+          padding-right:10px;
+          .content-feed-article-video{width:100%;margin-top:10px;}
+        }
+        &.video-large {
+          @media screen and (max-width: $break-md) {
+            height:auto;
+            padding-left:10px;
+            padding-right:10px;
+            .content-feed-article-video{width:100%;margin-top:10px;}
+          }
+        }
+      }
+      &.video-right {
+        .content-feed-article-video{}
+        &.video-large {
+        }
+      }
+      &.video-left {
+        .content-feed-article-video{}
+        &.video-large {
+        }
+      }
+
+
+      /***********************************************************************
+      Article Modifiers
+      ************************************************************************/
+
+      &.breaking {
+        .content-feed-article-category::after{
+        }
+      }
+    } // .content-feed-article
+
+      .content-feed-article-video{
+        @media screen and (max-width: $break-md) {
+          position:relative;
+        }
+        @media screen and (max-width: $break-sm) {
+        }
+        &:before{
+        }
+      }
+      .content-feed-article-category{
+        @media screen and (max-width: $break-md) {
+          margin-top:$vgrid;
+        }
+      }
+      .content-feed-article-title{}
+      .content-feed-article-subtitle{
+      }
+
+
+
+.expanded-child{
+  .content-feed-article-video{
+  }
+}
+.hidden-child{
+
+}
+  .content-feed-article-lead{
+    .content-feed-article-video {
+        @media screen and (max-width: $break-md) {
+          margin-right:10px;
+        }
+      &::before{}
+    }
+    p {
+    }
+  }
+  .content-feed-article-body {
+
+        @media screen and (max-width: $break-md) {
+          @include prefix(column-gap,$hgrid/2);
+        }
+        @media screen and (max-width: $break-sm) {
+          @include prefix(column-count,1);
+        }
+  }
+
+/************************************************************************************
+Other
+*************************************************************************************/
+
+
+
+
+
+
+

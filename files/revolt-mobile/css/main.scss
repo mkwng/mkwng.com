@@ -1,0 +1,94 @@
+
+@mixin prefix ( $property, $value... ) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
+}
+
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  background:#000000;
+}
+#container {
+  @include prefix(transition, all .3s);
+  // position:fixed;
+  width:320px;
+  &.nav {
+    left:225px;
+  }
+}
+#nav{
+  @include prefix(transition, all .3s);
+  position:fixed;
+  top:0;
+  left:-225px;
+  width:320px;
+  overflow:hidden;
+  img {
+    display:block;
+    position:relative;
+  }
+  .click {
+    display:block;
+    width:30px;
+    height:102px;
+    position:absolute;
+    top:0;
+    left:225px;
+    z-index:90;
+    font-size:0;
+  }
+
+  &.show{
+    left:0;
+
+  + #content {
+    left:225px;
+  }
+  }
+}
+#content {
+  @include prefix(transition, all .3s);
+  position:absolute;
+  top:0;
+  left:0;
+
+  z-index:-1;
+  a {
+    display:block;
+    overflow:hidden;
+    position:relative;
+
+    .inactive,.active {
+      @include prefix(transition, all 1s);
+      overflow:hidden;
+      position:relative;
+    }
+    .inactive {
+      max-height:159px;
+    }
+    .active {
+      max-height:0;
+      top:-159px;
+      z-index:2;
+    }
+  }
+
+  a.open {
+    .inactive {
+      max-height:0px;
+    }
+    .active {
+      top:0;
+      max-height:2432px;
+    }
+  }
+  img {
+    display:block;
+  }
+}

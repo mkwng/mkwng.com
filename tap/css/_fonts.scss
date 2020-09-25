@@ -1,0 +1,71 @@
+@mixin text-replace {
+  font-size:0;
+  text-indent:-9999999em;
+}
+
+//On White:
+$text: #333333;
+$text-dark: #000000;
+$text-light: #999999;
+
+//On Dark:
+$textDark: #ffffff;
+$textDark-dark: #666666;
+$textDark-light: #999999;
+
+@mixin font-head {
+  color:$text;
+  font-weight:300;
+  font-size:32px;
+  font-family:'Lato', sans-serif;
+}
+@mixin font-head-large {
+  @include font-head;
+  // font-weight:100;
+  font-size:64px;
+}
+@mixin font-head-small {
+  @include font-head;
+  font-size:24px;
+}
+
+@mixin font-title {
+  color:$text;
+  font-weight:500;
+  font-size:22px;
+  font-family:'Lato', sans-serif;
+}
+
+@mixin font-label {
+  color:$text-light;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:700;
+  font-size:12px;
+  font-family:"Montserrat";
+}
+@mixin font-label-large {
+  @include font-label;
+  font-size:16px;
+}
+@mixin font-label-small {
+  @include font-label;
+  font-size:9px;
+}
+
+@mixin font-text {
+  color:$text;
+  font-weight:300;
+  font-size:18px;
+  font-family:'Lato', sans-serif;
+  @include pretty-text;
+}
+@mixin font-text-large {
+  @include font-text;
+  font-size:22px;
+}
+@mixin font-text-small {
+  @include font-text;
+  font-size:13px;
+  font-weight:400;
+}

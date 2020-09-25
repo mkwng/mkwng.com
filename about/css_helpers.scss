@@ -1,0 +1,60 @@
+
+@mixin prefix ( $property, $value... ) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
+}
+
+@mixin pretty-text {
+    @include prefix(font-smoothing, antialiased);
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin accelerate {
+  // Enable 3D transforms, activating hardware acceleration
+  @include prefix(transform,translateZ(0));
+  // Fixing flickering bug
+  @include prefix(backface-visibility,hidden);
+  // Some bug fix, I forget why this is in here.
+  @include prefix(perspective,hidden);
+}
+
+@mixin keyframe ($animation_name){
+  @-webkit-keyframes $animation_name {@content;}
+  @-moz-keyframes $animation_name {@content;}
+  @-o-keyframes $animation_name {@content;}
+  @keyframes $animation_name {@content;}
+}
+@mixin animation ($delay, $duration, $animation, $timing: linear) {
+    @include prefix(animation-delay, $delay);
+    @include prefix(animation-duration, $duration);
+    @include prefix(animation-name, $animation);
+    @include prefix(animation-fill-mode, forwards); /* this prevents the animation from restarting! */
+    @include prefix(animation-timing-function, $timing);
+}
+
+
+@mixin gradient($color1, $color2) {
+background: $color1; /* Old browsers */
+background: -moz-linear-gradient(-45deg, $color1 0%, $color2 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$color1), color-stop(100%,$color2)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, $color1 0%,$color2 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, $color1 0%,$color2 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, $color1 0%,$color2 100%); /* IE10+ */
+background: linear-gradient(135deg, $color1 0%,$color2 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@include keyframe(spinner) {
+  0%   { @include prefix(transform,rotateZ(0deg)); }
+  25% { @include prefix(transform,rotateZ(180deg));  }
+  50% { @include prefix(transform,rotateZ(180deg));  }
+  75%   { @include prefix(transform,rotateZ(0deg)); }
+}
+
+@mixin text-replace {
+  font-size:000000;
+  text-indent:-9999999em;
+}

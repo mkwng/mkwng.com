@@ -1,0 +1,669 @@
+Array
+(
+)
+
+Array
+(
+    [where] => domestic
+    [what] => outdoors
+    [escape] => Hiking
+    [environment] => Coasts & waterfronts
+    [when] => summer
+)
+
+Array
+(
+    [where] => international
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Local Culture
+            [1] => Music
+            [2] => Theater
+            [3] => Shopping
+        )
+
+    [environment] => Array
+        (
+            [0] => Parks & playgrounds
+        )
+
+    [when] => fall
+    [cost] => $
+)
+
+Array
+(
+    [where] => domestic
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Scenic drives
+            [1] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Deserts
+            [1] => Coasts & waterfronts
+            [2] => Natural wonders
+        )
+
+    [when] => winter
+    [cost] => $$$
+)
+
+Array
+(
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Education
+        )
+
+    [environment] => Array
+        (
+            [0] => Deserts
+        )
+
+)
+
+Array
+(
+    [where] => international
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Shopping
+        )
+
+    [environment] => Array
+        (
+            [0] => Historic landmarks
+            [1] => Coasts & waterfronts
+            [2] => Resorts & retreats
+        )
+
+    [when] => fall
+)
+
+Array
+(
+    [where] => domestic
+    [what] => outdoors
+    [when] => fall
+    [cost] => $$$$
+)
+
+Array
+(
+    [where] => both
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Scenic drives
+        )
+
+    [environment] => Array
+        (
+            [0] => Coasts & waterfronts
+        )
+
+    [when] => fall
+    [cost] => $
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Education
+            [1] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => winter
+    [cost] => $$
+)
+
+Array
+(
+    [where] => both
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+            [1] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Islands
+            [1] => Deserts
+        )
+
+    [when] => summer
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Camping
+            [1] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Mountains
+        )
+
+    [when] => summer
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Camping
+            [1] => Snow sports
+            [2] => Hiking
+            [3] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Beaches
+            [2] => Foliage
+            [3] => Deserts
+        )
+
+    [when] => fall
+    [cost] => $
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Unwinding
+            [1] => Scenic drives
+            [2] => Camping
+            [3] => Golfing
+            [4] => Education
+            [5] => Hiking
+            [6] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Mountains
+            [1] => Coasts & waterfronts
+            [2] => Natural wonders
+        )
+
+    [when] => spring
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => fall
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Mountains
+        )
+
+    [when] => winter
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => domestic
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Beaches
+        )
+
+    [when] => winter
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => summer
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => winter
+    [cost] => $$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => winter
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Mountains
+        )
+
+    [when] => winter
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Camping
+            [1] => Snow sports
+            [2] => Education
+        )
+
+    [environment] => Array
+        (
+            [0] => Beaches
+            [1] => Foliage
+            [2] => Coasts & waterfronts
+        )
+
+    [when] => fall
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Camping
+        )
+
+    [environment] => Array
+        (
+            [0] => Islands
+        )
+
+    [when] => winter
+    [cost] => $
+)
+
+Array
+(
+    [where] => both
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Scenic drives
+            [1] => Hiking
+            [2] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Foliage
+            [2] => Deserts
+            [3] => Coasts & waterfronts
+        )
+
+    [when] => fall
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => domestic
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Snow sports
+            [1] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Deserts
+            [1] => Coasts & waterfronts
+        )
+
+    [when] => winter
+    [cost] => $
+)
+
+Array
+(
+    [where] => both
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Local Culture
+            [1] => Theater
+            [2] => Nightlife
+        )
+
+    [environment] => Array
+        (
+            [0] => Offbeat neighborhoods
+            [1] => Coasts & waterfronts
+            [2] => Quaint communities
+        )
+
+    [when] => spring
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => both
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Camping
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => fall
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => both
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Snow sports
+            [1] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Mountains
+            [1] => Natural wonders
+        )
+
+    [when] => winter
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => both
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Education
+        )
+
+    [environment] => Array
+        (
+            [0] => Coasts & waterfronts
+        )
+
+    [when] => fall
+)
+
+Array
+(
+    [where] => both
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Scenic drives
+            [1] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Mountains
+            [1] => Deserts
+        )
+
+    [when] => summer
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Deserts
+        )
+
+)
+
+Array
+(
+    [where] => both
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Theater
+        )
+
+    [environment] => Array
+        (
+            [0] => Iconic architecture
+            [1] => Resorts & retreats
+        )
+
+    [when] => spring
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Camping
+        )
+
+    [environment] => Array
+        (
+            [0] => Coasts & waterfronts
+        )
+
+)
+
+Array
+(
+    [where] => both
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Local Culture
+        )
+
+    [environment] => Array
+        (
+            [0] => Parks & playgrounds
+        )
+
+)
+
+Array
+(
+    [where] => both
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Snow sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+)
+
+Array
+(
+    [where] => both
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+)
+
+Array
+(
+    [where] => both
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Local Culture
+            [1] => Music
+            [2] => Theater
+        )
+
+    [environment] => Array
+        (
+            [0] => Offbeat neighborhoods
+            [1] => Iconic architecture
+            [2] => Parks & playgrounds
+        )
+
+    [when] => fall
+)
+
+Array
+(
+    [where] => domestic
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Music
+            [1] => Theater
+            [2] => Golfing
+        )
+
+    [environment] => Array
+        (
+            [0] => Islands
+            [1] => Coasts & waterfronts
+            [2] => Natural wonders
+        )
+
+    [when] => fall
+)
+

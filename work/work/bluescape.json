@@ -1,0 +1,14 @@
+{ "work" : {
+
+  "title" : "Bluescape",
+  "desc" : "Defining a multi-touch interface for an interactive, collaborative workspace",
+  "video" : "<iframe src=\"//player.vimeo.com/video/67748964?title=0&amp;byline=0&amp;portrait=0\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+  "body1" : "<h3>How do you interact with an infinite canvas?</h3><p>In late 2012, <a href=\"http://obscuradigital.com\">Obscura Digital</a> approached us to help them create a new way of interacting with a technology they were experimenting with. They had created a working prototype of giant, wall-sized touch screens, and imagined a new way of working, both locally and remotely, by taking advantage of the latest technologies available. They had the vision, but needed a team to help them define the details in order to make it a reality.</p>",
+  "body2" : "<h3>What I did</h3><p>Working with a creative director and another visual designer, I contributed primarily as an interaction designer, fleshing out a whole new platform and all the interactions that came with it. We defined everything from the very basic interactions, like moving and swiping, to the more complex details, like selecting a different pen color or the handling of overlapping elements.</p>",
+  "bodyimg" : "<img src=\"img/work/bluescape/body1.jpg\" alt=\"Creating Objects\"/>",
+  "body3" : "<h3>Conclusion</h3><p>In the end, we delivered a system of interactions that set the basis for what became Bluescape, a collaborative workspace that allows teams to work and communicate remotely.</p>",
+  "site" : "http://bluescape.com",
+  "imageendcap" : 1,
+  "imageheader" : 1
+
+}}

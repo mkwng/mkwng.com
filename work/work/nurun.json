@@ -1,0 +1,13 @@
+{ "work" : {
+
+  "title" : "Nurun",
+  "desc" : "Creating the visual language and experience for a global agency",
+  "body1" : "<h3>Selling ourselves as thought leaders in the industry</h3><p>When <a target=\"_blank\" href=\"http://odopod.com\">Odopod</a> transitioned its name to <a target=\"_blank\" href=\"http://nurun.com\">Nurun</a>, it also meant a whole new brand refresh. As the brand identity came together with our partnership with a branding agency, we needed to set the tone right with our website in order to position ourselves as leaders in the industry. The goal was to represent us as we are: a leader in the digital world who can bring world-class work to any of our clients.</p>",
+  "body2" : "<h3>What I did</h3><p>Working with a small team of designers, developers, strategists, and more, I contributed primarily as a visual designer, helping to establish the tone, look, and feel of a site that would ultimately represent our brand. From early concepting onto fine tuning of the detail pages, we carefully crafted each page to tell the story of our work.</p>",
+  "bodyimg" : "<img src=\"img/work/nurun/body1.jpg\" alt=\"Creating Objects\"/>",
+  "body3" : "<h3>Conclusion</h3><p>The result of the team's combined effort was a deep, content-rich site that not only tells the story of the way we work, but also makes the case for Nurun to be a world-class digital agency, able to deliver as well as the rest of them. The site launched mid-2013 to minor fanfare, garnering a few awards in its wake.</p>",
+  "site" : "http://nurun.com",
+  "imageendcap" : 1,
+  "imageheader" : 1
+
+}}

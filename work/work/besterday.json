@@ -1,0 +1,13 @@
+{ "work" : {
+
+  "title" : "Besterday",
+  "desc" : "Helping people capture, catalogue, and remember the best parts of their day",
+  "body1" : "<h3>What is Besterday?</h3><p>Besterday is a simple tool that only serves one function: It asks you to write down the best thing that happened to you yesterday. It can be anything. The way you interact is up to you, but no matter how you use it, Besterday helps remind you that the things that make you happy are already there.</p>",
+  "body2" : "<h3>What I did</h3><p>Besterday is a personal project I created on the side. After concepting the idea and running through some rough sketches, I hand coded the front-end of the site from the ground up, often times designing in code. Using the Meteor framework, I built the back-end of the site using node.js.</p>",
+  "bodyimg" : "<img src=\"img/work/besterday/body1.jpg\" alt=\"Creating Objects\"/>",
+  "body3" : "<h3>Conclusion</h3><p>As of October 2013, the site has been through a soft launch. It's currently live and has a few users with impressive engagement. As any early product, it's still technically in beta, and there's much more in the pipeline I'm excited to share as time goes on.</p>",
+  "site" : "http://www.besterday.com",
+  "imageendcap" : 1,
+  "imageheader" : 1
+
+}}

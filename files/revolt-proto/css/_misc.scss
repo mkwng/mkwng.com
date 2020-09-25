@@ -1,0 +1,147 @@
+
+@mixin prefix ( $property, $value... ) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
+}
+@mixin accelerate {
+  // Enable 3D transforms, activating hardware acceleration
+  @include prefix(transform,translateZ(0));
+  // Fixing flickering bug
+  @include prefix(backface-visibility,hidden);
+  // Some bug fix, I forget why this is in here.
+  @include prefix(perspective,1000);
+}
+
+@mixin flex ($align:center) {
+  display: -webkit-flexbox;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  @include prefix(box-orient,vertical);
+  @include prefix(flex-align,$align);
+  @include prefix(align-items,$align);
+}
+
+@mixin gradientVert($color1,$color2) {
+  background: -moz-linear-gradient(top, $color1 0%, $color2 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(100%,$color2)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $color1 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $color1 0%,$color2 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $color1 0%,$color2 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $color1 0%,$color2 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradientDiag($color1,$color2) {
+  background: -moz-linear-gradient(-45deg, $color1 0%, $color2 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$color1), color-stop(100%,$color2)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, $color1 0%,$color2 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, $color1 0%,$color2 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, $color1 0%,$color2 100%); /* IE10+ */
+  background: linear-gradient(135deg, $color1 0%,$color2 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+ 
+// use of keyframes mixin
+@include keyframes(bgcolor) {
+  0% {
+    background-color: #ffccf2;
+  }
+  50% {
+    background-color: #ccffcc;
+  }
+  100% {
+    background-color: #ccffff;
+  } 
+}
+
+@include keyframes(fadein) {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+#cover{
+  @include prefix(transition,all 1s);
+  visibility:hidden;
+  opacity:0;
+  top:0;
+  left:0;
+  z-index:10;
+  position:fixed;
+  height:100%;
+  width:100%;
+  background:rgba(0,0,0,.5);
+  &.visible{
+    visibility:visible;
+    opacity:1;
+  }
+}
+
+
+// $spinner-size: 32px;
+// $spinner-color: #38e;
+
+// @mixin keyframes($name) {
+//   @-webkit-keyframes $name { @content }
+//   @-moz-keyframes $name { @content }
+//   @-o-keyframes $name { @content }
+//   @keyframes $name { @content }
+// }
+
+// @mixin animation($value) {
+//   @include experimental(animation, $value, -webkit, -moz, -ms, -o, official);
+// }
+
+// @include keyframes(spinner) {
+//   0%   { @include prefix(transform,rotateZ(0deg)); }
+//   100% { @include prefix(transform,rotateZ(360deg)); }
+// }
+
+// body {
+//   text-align: center;
+//   padding: 50px;
+// }
+
+// /* Styles for old versions of IE */
+// .spinner {
+//   font-family: sans-serif;
+//   font-weight: 100;
+// }
+
+// /* :not(:required) hides this rule from IE9 and below */
+// .spinner:not(:required) {
+//   @include animation(spinner 1250ms infinite linear);
+//   border: ($spinner-size/4) solid $spinner-color;
+//   border-right-color: transparent;
+//   border-radius: ($spinner-size / 2);
+//   box-sizing: border-box;
+//   display: inline-block;
+//   position: relative;
+//   overflow: hidden;
+//   text-indent: -9999px;
+//   width: $spinner-size;
+//   height: $spinner-size;
+// }

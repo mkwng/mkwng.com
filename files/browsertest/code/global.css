@@ -1,0 +1,84 @@
+
+@font-face { font-family: HUGE AGB; src: url('huge_agb.ttf'); } 
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+#image {
+	margin:0 auto;
+	display:block;
+	width: 100%;
+	padding: 0;
+}
+
+#index img {
+  margin-left: 4px;
+}
+
+#index h1 {
+	font-family: HUGE AGB;
+	letter-spacing: -.04em;
+	font-size:52px; 
+	font-weight:bold;
+	line-height: 48px;
+	display: block; 
+	margin: 48px 0 10px 4px;  
+}
+
+#index h2 {
+	font-size:16px; 
+	font-weight: normal;
+	background-color:#e2f5f7;
+	display: inline-block; 
+	padding:2px 4px;
+	margin: 0 0 36px 4px;
+}
+
+#index h3 {
+	font-size:16px; 
+	font-weight: normal;
+	display: inline-block; 
+	padding: 2px 0;
+	margin: 0;
+}
+
+
+#index #content #pages ul { 
+  list-style:none; 
+  padding: 4px;
+  margin: 0;
+}
+
+#index #content #pages ul li { 
+  font-family: Arial; 
+  font-size:18px;
+  font-weight: bold; 
+  padding: 12px 2px;
+  margin: 0;
+  border-top: 1px solid #aaa; 
+}
+
+#index #content #pages ul li a { 
+  display:block; 
+  text-decoration:none; 
+  color:#f73e9f;
+  padding-left: 4px;
+}
+  
+#index #content #pages ul li a:hover {  }
+
+   
+#index #footer{
+    border-top:1px solid #d9d9d9;
+    color:#d9d9d9;
+    text-align:right; 
+    font-size:10px;
+    padding-top:4px;
+}
+
+
+

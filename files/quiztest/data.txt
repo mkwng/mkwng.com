@@ -1,0 +1,165 @@
+Array
+(
+    [where] => international
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Theater
+            [1] => Shopping
+        )
+
+    [environment] => Array
+        (
+            [0] => Parks & playgrounds
+        )
+
+    [when] => spring
+    [cost] => $$
+)
+
+Array
+(
+    [where] => both
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Unwinding
+            [1] => Golfing
+            [2] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Beaches
+            [2] => Islands
+            [3] => Coasts & waterfronts
+        )
+
+    [when] => summer
+    [cost] => $$$
+)
+
+Array
+(
+    [where] => both
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Camping
+            [1] => Snow sports
+            [2] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Beaches
+            [2] => Coasts & waterfronts
+        )
+
+    [when] => summer
+    [cost] => $$
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Education
+        )
+
+    [environment] => Array
+        (
+            [0] => Natural wonders
+        )
+
+    [when] => summer
+    [cost] => $$
+)
+
+Array
+(
+    [where] => international
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Unwinding
+            [1] => Scenic drives
+            [2] => Golfing
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Beaches
+            [2] => Islands
+        )
+
+    [when] => summer
+    [cost] => $$
+)
+
+Array
+(
+    [where] => both
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Unwinding
+        )
+
+    [environment] => Array
+        (
+            [0] => Foliage
+            [1] => Coasts & waterfronts
+        )
+
+    [when] => summer
+    [cost] => $
+)
+
+Array
+(
+    [where] => domestic
+    [what] => both
+    [escape] => Array
+        (
+            [0] => Unwinding
+            [1] => Scenic drives
+            [2] => Camping
+        )
+
+    [environment] => Array
+        (
+            [0] => Coasts & waterfronts
+        )
+
+    [when] => spring
+    [cost] => $$
+)
+
+Array
+(
+    [where] => international
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Camping
+            [1] => Education
+            [2] => Hiking
+        )
+
+    [environment] => Array
+        (
+            [0] => Tropical
+            [1] => Beaches
+            [2] => Deserts
+        )
+
+    [when] => fall
+    [cost] => $$
+)
+

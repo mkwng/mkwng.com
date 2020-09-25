@@ -1,0 +1,74 @@
+ArrayArrayArraydomesticbothHikingCoasts & waterfrontsfall$$domestic. both. Hiking. Coasts & waterfronts. fall. $$domestic, both, Hiking, Coasts & waterfronts, fall, $$
+domestic, both, Hiking, Coasts & waterfronts, fall, $$
+domestic, both, Hiking, Coasts & waterfronts, fall, $$
+domestic, both, Hiking, Coasts & waterfronts, fall, $$
+domestic, outdoors, Scenic drives, Natural wonders, summer, $$$$
+domestic, outdoors, Scenic drives, Natural wonders, summer, $
+Array
+(
+    [where] => domestic
+    [what] => both
+    [escape] => Snow sports
+    [environment] => Natural wonders
+    [when] => fall
+    [cost] => $
+)
+
+Array
+(
+    [where] => domestic
+    [what] => both
+    [escape] => Snow sports
+    [environment] => Natural wonders
+    [when] => fall
+    [cost] => $
+)
+
+Array
+(
+    [where] => domestic
+    [what] => outdoors
+    [escape] => Array
+        (
+            [0] => Scenic drives
+            [1] => Camping
+            [2] => Golfing
+            [3] => Sports
+        )
+
+    [environment] => Array
+        (
+            [0] => Beaches
+            [1] => Islands
+            [2] => Mountains
+            [3] => Deserts
+            [4] => Coasts & waterfronts
+            [5] => Natural wonders
+        )
+
+    [when] => fall
+)
+
+Array
+(
+    [where] => international
+    [what] => city
+    [escape] => Array
+        (
+            [0] => Music
+            [1] => Sports
+            [2] => Theater
+            [3] => Shopping
+        )
+
+    [environment] => Array
+        (
+            [0] => Coasts & waterfronts
+            [1] => Quaint communities
+            [2] => Iconic architecture
+        )
+
+    [when] => summer
+    [cost] => $$$$
+)
+

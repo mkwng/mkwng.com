@@ -1,0 +1,342 @@
+//  .d8888b.  888          888               888 
+// d88P  Y88b 888          888               888 
+// 888    888 888          888               888 
+// 888        888  .d88b.  88888b.   8888b.  888 
+// 888  88888 888 d88""88b 888 "88b     "88b 888 
+// 888    888 888 888  888 888  888 .d888888 888 
+// Y88b  d88P 888 Y88..88P 888 d88P 888  888 888 
+//  "Y8888P88 888  "Y88P"  88888P"  "Y888888 888 
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// Variables
+///////////////////////////////////////////////////////////////////////////
+$bg: #e8e8e8;
+$red: #8a0c10;
+$red2: #8a0c10;
+$red1: #b90f10;
+$grey: #cbcbcb;
+$black: #171717;
+$text: #535353;
+
+$break-sm: 320px;
+$break-md: 768px;
+$break-lg: 1200px;
+
+$margin: 50px;
+$margin-small:35px;
+
+
+///////////////////////////////////////////////////////////////////////////
+// Helpers
+///////////////////////////////////////////////////////////////////////////
+@mixin prefix ( $property, $value... ) {
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
+}
+@mixin accelerate {
+  // Enable 3D transforms, activating hardware acceleration
+  @include prefix(transform,translateZ(0));
+  // Fixing flickering bug
+  @include prefix(backface-visibility,hidden);
+  // Some bug fix, I forget why this is in here.
+  @include prefix(perspective,hidden);
+}
+@mixin inline-block-parent{
+  letter-spacing: -0.31em;
+}
+@mixin inline-block-child{
+  vertical-align: top;
+  word-spacing: normal;
+  letter-spacing: normal;
+  zoom: 1;
+  text-rendering: auto;
+  display: inline-block;
+}
+@mixin keyframe ($animation_name){
+  @-webkit-keyframes $animation_name {@content;}
+  @-moz-keyframes $animation_name {@content;}
+  @-o-keyframes $animation_name {@content;}
+  @keyframes $animation_name {@content;}
+}
+@mixin animation ($delay, $duration, $animation, $timing: linear) {
+    @include prefix(animation-delay, $delay);
+    @include prefix(animation-duration, $duration);
+    @include prefix(animation-name, $animation);
+    @include prefix(animation-fill-mode, forwards); /* this prevents the animation from restarting! */
+    @include prefix(animation-timing-function, $timing);
+}
+@mixin pretty-text {
+    @include prefix(font-smoothing, antialiased);
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+///////////////////////////////////////////////////////////////////////////
+// Typography
+///////////////////////////////////////////////////////////////////////////
+
+@mixin text-h1{
+  font-family:"United";
+  font-size:30px;
+  color:#000000;
+  letter-spacing:.6px;
+}
+@mixin text-subtitle {
+  font-family:"Gibson";
+  font-weight:700;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:#000000;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+}
+@mixin text-leader {
+  font-family:"Gibson";
+  font-weight:500;
+  font-size:16px;
+  line-height:20px;
+  color:#535353;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+}
+@mixin text-paragraph {
+  font-family:"Gibson";
+  font-weight:500;
+  font-size:18px;
+  line-height:34px;
+  color:#252525;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+  }
+@mixin text-icon {
+  &::before{
+    font-family: 'Revolt-Icons';
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.twitter-handle{
+  &::before {
+    content:"@";
+    position:relative;
+    top:-2px;
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Structure
+///////////////////////////////////////////////////////////////////////////
+
+html,body{
+  height:100%;
+}
+
+body {
+  background:#252525;
+  overflow:hidden;
+  font-family:"Gibson";
+}
+
+#logo {
+  @include prefix(transition,all .5s);
+  @include accelerate;
+  position:fixed;
+  top:0;
+  left:50%;
+  z-index:9;
+  display:block;
+  overflow:hidden;
+  margin:0;
+  margin-left:-100px;
+  padding:0;
+  width:250px;
+  height:75px;
+  background:url(../img/logo.png) no-repeat;
+  background-position:50% 50%;
+  background-size:contain;
+  text-indent:-999999em;
+  cursor:pointer;
+  &.sticky {
+    // margin-top:115px !important;
+    opacity:0;
+  }
+  &.shrink {
+    height:40px;
+  }
+}
+
+
+  .article-ad {
+    position:absolute;
+    right:0;
+    top:0;
+    opacity:0;
+    z-index:9;
+    width:336px;
+    height:263px;
+    display:none;
+    @include animation(1s,.5s,fadeIn,"swing");
+    background-image:url('../img/ad/04.jpg');
+    margin-top:60px;
+    margin-bottom:60px;
+    width:33%;
+    background-position:50% 50%;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    pointer-events:none;
+
+    &.left {
+      left:60px;
+    }
+    &.visible {
+      display:block;
+    }
+    &::before{
+      top:-20px;
+      width:100%;
+      text-align:center;
+      position:relative;
+      content:"Advertisement";
+      @include text-subtitle;
+      display:block;
+      color:rgba(0,0,0,.2);
+    }
+  }
+
+
+.container {
+  @include accelerate;
+  @include prefix(transition,left .5s);
+  position:relative;
+  height:100%;
+  background:$bg;
+
+  &.show-menu {
+    left:230px;
+  }
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// Styles
+///////////////////////////////////////////////////////////////////////////
+a {
+  text-decoration:none;
+  color:$red1;
+  &:hover {
+    color:$red;
+  }
+}
+button {
+  margin:0;
+  padding:0;
+  outline:none;
+  border:none;
+  background:transparent;
+  color:$red1;
+  pointer:cursor;
+  &:hover {
+    color:$red;
+  }
+}
+
+@mixin button-default {
+  @include text-subtitle;
+    @include prefix(transition,all .15s);
+  color: $red1;
+  border-top:2px solid $red1;
+  border-bottom:2px solid $red1;
+  padding:10px;
+  margin-bottom:6px;
+  &::after {
+    @include prefix(transition,left .15s);
+    display:inline-block;
+    vertical-align:middle;
+    position:relative;
+    right:auto;
+    margin-left:10px;
+    top:-2px;
+    width: 0px;
+    height: 0px;
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent $red1;
+    content:"";
+  }
+  &:hover {
+    color:$red;
+    border-color:$red;
+    // background:$red1;
+    // margin-top:-6px;
+    // padding-top:16px;
+    // padding-bottom:16px;
+    // margin-bottom:0;
+    &::after {
+      left:4px;
+    border-color: transparent transparent transparent $red;
+    }
+  }
+}
+
+@include keyframe(fadeIn) {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+@include keyframe(fadeTo20) {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:.2;
+    }
+}
+
+@include keyframe(spinner) {
+  0%   { @include prefix(transform,rotateZ(0deg)); }
+  100% { @include prefix(transform,rotateZ(360deg));  }
+}
+$spinner-size: 64px;
+.spinner {
+  @include prefix(transition,opacity .5s);
+  @include animation (0, 1s, spinner, linear);
+  @include prefix(animation-iteration-count, infinite);
+  position:absolute;
+  top:50%;
+  left:50%;
+  z-index:2;
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top:-1*$spinner-size/2;
+  margin-left:-1*$spinner-size/2;
+  width: $spinner-size;
+  height: $spinner-size;
+  border: ($spinner-size/6) solid $red1;
+  border-right-color: transparent;
+  border-radius: ($spinner-size / 2);
+  text-indent: -9999px;
+  opacity:0;
+  &.visible {
+    opacity:1;
+  }
+}
+.sticky {
+  z-index:9999;
+}
